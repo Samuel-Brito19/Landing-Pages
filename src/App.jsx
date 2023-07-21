@@ -1,11 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import * as Styled from './style/styles'
+
 
 function App() {
 
   return (
-    <h1>Olá!</h1>
+    <Styled.Wrap>
+      <h1>Olá!</h1>
+    </Styled.Wrap>
   )
 }
 
