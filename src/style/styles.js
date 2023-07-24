@@ -1,9 +1,8 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
+
 
 export const Wrap = styled.div`
-
-${({ theme }) => css`
+  ${({ theme }) => css`
     background: ${theme.colors.mainBg};
   `}
-
-`
+`;
