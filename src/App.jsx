@@ -4,9 +4,10 @@ import * as Styled from './style/styles'
 function App() {
 
   return (
-    <Styled.Wrap>
+    <Styled.Title>
       <h1>Olá!</h1>
-    </Styled.Wrap>
+    </Styled.Title>
+
   )
 }
 
