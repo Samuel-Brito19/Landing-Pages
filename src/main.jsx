@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 import { GlobalStyles } from './style/globalStyles'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './style/theme.js'
 import styled, { css } from 'styled-components'
 import { Heading } from './components/Heading/index.jsx'
+import Home from './App'
 
 const changeBackground = (bg) => css`
 background: ${bg};
@@ -27,7 +27,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <Container bg="red">
-        <Heading>Olá</Heading>
+        <Heading>
+          <Home />
+        </Heading>
       </Container>
     </ThemeProvider>
     <GlobalStyles />

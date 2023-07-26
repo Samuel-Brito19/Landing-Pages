@@ -1,14 +1,11 @@
-import * as Styled from './style/styles'
+import { Heading } from './components/Heading';
 
 
-function App() {
-
+function Home() {
   return (
-    <Styled.Title>
-      <h1>Olá!</h1>
-    </Styled.Title>
-
-  )
+    <div className="App">
+      <Heading>O texto que eu quero</Heading>
+    </div>
+  );
 }
-
-export default App
+export default Home;

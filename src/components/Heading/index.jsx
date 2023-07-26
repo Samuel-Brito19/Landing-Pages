@@ -1,6 +1,5 @@
-import * as Styled from './styles'
-import P from 'prop-types'
-
+import P from 'prop-types';
+import * as Styled from './styles';
 export const Heading = ({
   children,
   colorDark = true,
@@ -22,7 +21,6 @@ export const Heading = ({
 
 Heading.propTypes = {
   children: P.node.isRequired,
-  light: P.bool,
   colorDark: P.bool,
   as: P.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   size: P.oneOf(['small', 'medium', 'big', 'huge']),
