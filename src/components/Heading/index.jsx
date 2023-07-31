@@ -1,7 +1,7 @@
 import * as Styled from './styles'
 import P from 'prop-types'
 
-export const Heading = ({ children, as = 'h1', size = 'big', upperCase = false }) => {
+export const Heading = ({ children, as = 'h1', size = 'huge', upperCase = false }) => {
   return <Styled.Title as={as} size={size} upperCase={upperCase}>{children}</Styled.Title>
 }
 
