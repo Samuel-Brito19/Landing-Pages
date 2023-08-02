@@ -8,7 +8,8 @@ describe('<Heading/>', () => {
     renderTheme(<Heading>texto</Heading>)
     const heading = screen.getByRole('heading', { name: 'texto' })
     expect(heading).toHaveStyle({
-      color: theme.colors.primaryColor,
+      color: ' rgb(10, 17, 40)',
+
     })
   })
 })
