@@ -3,7 +3,8 @@ import { LogoLink } from '.'
 import { renderTheme } from '../../templates/styles/renderTheme'
 describe('<LogoLink/>', () => {
   it('should render', () => {
-    renderTheme(<LogoLink>children</LogoLink>)
-    expect(screen.getByRole('heading')).toBeInTheDocument()
+    renderTheme(<LogoLink link='#target' text='Olá mundo' />)
+    const heading = screen.getByRole('heading', { name: 'Olá mundo' })
+    expect(heading.firstChild).toHaveAttribute('href', '#target')
   })
 })
