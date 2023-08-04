@@ -4,12 +4,13 @@ import { SectionContainer } from '../SectionContainer'
 import { LogoLink } from '../LogoLink'
 import { NavLinks } from '../NavLinks'
 
-export const Menu = ({ links, logoData }) => {
+export const Menu = ({ links = [], logoData }) => {
   return (
     <Styled.Container>
       <SectionContainer>
         <Styled.MenuContainer>
-          <LogoLink />
+          <LogoLink {...logoData} />
+          <NavLinks links={links} />
         </Styled.MenuContainer>
 
       </SectionContainer>
