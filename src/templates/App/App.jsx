@@ -1,10 +1,23 @@
 import { Heading } from '../../components/Heading';
 import * as Styled from './styles';
+import { SectionBackground } from '../../components/SectionBackground';
+import { NavLinks } from '../../components/NavLinks';
 
 function Home() {
   return (
     <div className="App">
-      <Heading>Olá amigos</Heading>
+      <NavLinks links={[
+        {
+          children: 'olá',
+          link: '/sobre',
+          newTab: false
+        },
+        {
+          children: 'Messi',
+          link: '/messi',
+          newTab: true
+        }
+      ]} />
     </div>
   );
 }
