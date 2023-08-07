@@ -8,15 +8,27 @@ import { Menu as MenuIcon } from '@styled-icons/material-outlined/Menu'
 export const Menu = ({ links = [], logoData }) => {
   return (
     <>
-      <Styled.Button>
-        <MenuIcon />
-      </Styled.Button>
 
       <Styled.Container>
         <SectionContainer>
           <Styled.MenuContainer>
-            <LogoLink {...logoData} />
-            <NavLinks links={links} />
+            <LogoLink text={'Hello world'} link={'Home'} />
+            <NavLinks links={[
+              {
+                children: 'BBC',
+                link: '/ababa'
+              },
+              {
+                children: 'Kaká',
+                link: '/brasil'
+              },
+              {
+                children: 'Pânico',
+                link: '/barbacena'
+              },
+
+
+            ]} />
           </Styled.MenuContainer>
 
         </SectionContainer>
