@@ -22,7 +22,7 @@ export const Menu = ({ links = [], logoData }) => {
       <Styled.Container visible={visible} onClick={() => setVisible(false)}>
         <SectionContainer>
           <Styled.MenuContainer>
-            <LogoLink text={'Hello world'} link={'Home'} />
+            <LogoLink text={'LOGO'} link={'Home'} />
             <NavLinks links={[
               {
                 children: 'BBC',
@@ -44,8 +44,6 @@ export const Menu = ({ links = [], logoData }) => {
                 children: 'Batman',
                 link: '/joker'
               },
-
-
             ]} />
           </Styled.MenuContainer>
 
