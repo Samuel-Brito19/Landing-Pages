@@ -79,6 +79,7 @@ export const Button = styled.button`
     border: none;
     display: none;
     pointer-events: ${visible ? 'none' : 'all'};
+
     @media ${theme.media.lteMedium} {
       display: flex;
       align-items: center;
