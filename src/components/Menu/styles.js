@@ -8,7 +8,6 @@ const menuVisible = (theme) => css`
 `;
 
 export const Container = styled.div`
-  ${({ theme }) => css``}
   ${({ theme, visible }) => css`
     position: fixed;
     z-index: 5;
@@ -16,22 +15,26 @@ export const Container = styled.div`
     left: 0;
     right: 0;
     width: 100%;
+    height: 100%;
     border-bottom: ${theme.colors.mediumGray};
     background: ${theme.colors.white};
     transition: all 300ms ease-in-out;
+
     > ${SectionContainer} {
-      padding-top: 0;
+      padding-top:0;
       padding-bottom: 0;
     }
     & ${Heading} {
       margin-top: 0;
       margin-bottom: 0;
     }
+
     @media ${theme.media.lteMedium} {
       height: 100vh;
       visibility: hidden;
       opacity: 0;
       ${visible && menuVisible(theme)}
+
       > ${SectionContainer} {
         display: grid;
         grid-template-columns: 1fr;
@@ -54,6 +57,7 @@ export const MenuContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     @media ${theme.media.lteMedium} {
       display: block;
       text-align: center;

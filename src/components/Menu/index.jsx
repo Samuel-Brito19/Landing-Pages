@@ -8,7 +8,9 @@ import { Menu as MenuIcon } from '@styled-icons/material-outlined/Menu'
 export const Menu = ({ links = [], logoData }) => {
   return (
     <>
-
+      <Styled.Button>
+        <MenuIcon />
+      </Styled.Button>
       <Styled.Container>
         <SectionContainer>
           <Styled.MenuContainer>
