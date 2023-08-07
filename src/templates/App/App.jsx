@@ -1,7 +1,7 @@
 import { Heading } from '../../components/Heading';
 import * as Styled from './styles';
-import { SectionBackground } from '../../components/SectionBackground';
 import { NavLinks } from '../../components/NavLinks';
+
 
 function Home() {
   return (
@@ -13,10 +13,16 @@ function Home() {
           newTab: false
         },
         {
-          children: 'Messi',
-          link: '/messi',
-          newTab: true
-        }
+          children: 'mundo',
+          link: '/about',
+          newTab: false
+        },
+        {
+          children: 'coldplay',
+          link: '/UK',
+          newTab: false
+        },
+
       ]} />
     </div>
   );
