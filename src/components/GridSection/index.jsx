@@ -13,7 +13,7 @@ export const GridSection = ({ title, description, background = false, grid }) =>
         <Styled.Grid>{grid.map(el => (
           <Styled.GridElement key={el.title}>
             <Heading size='medium'>{el.title}</Heading>
-            <TextComponent>{description}</TextComponent>
+            <TextComponent>{el.description}</TextComponent>
           </Styled.GridElement>
         ))}</Styled.Grid>
       </Styled.Container>
