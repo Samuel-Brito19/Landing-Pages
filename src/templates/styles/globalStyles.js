@@ -32,6 +32,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    color: ${theme.colors.secondaryColor};
+    color: ${({ theme }) => theme.colors.secondaryColor};
   }
 `;
