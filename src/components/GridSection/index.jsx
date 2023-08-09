@@ -1,12 +1,20 @@
 import P from 'prop-types'
 import * as Styled from './styles'
-export const GridSection = ({ children }) => {
+import { SectionBackground } from '../SectionBackground'
+import { Heading } from '../Heading'
+
+export const GridSection = ({ title }) => {
   return (
-    <Styled.Container>
-      <h1>{children}</h1>
-    </Styled.Container>
+    <SectionBackground>
+      <Styled.Container>
+        <Heading>
+          {title}
+        </Heading>
+      </Styled.Container>
+    </SectionBackground>
+
   )
 }
 GridSection.propTypes = {
-  children: P.node.isRequired
+  title: P.string.isRequired
 }
