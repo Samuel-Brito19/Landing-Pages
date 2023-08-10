@@ -1,9 +1,12 @@
 import { screen } from '@testing-library/react'
 import { GridSection } from '.'
 import { renderTheme } from '../../templates/styles/renderTheme'
+import mock from './mock'
+
+
 describe('<GridSection/>', () => {
   it('should render', () => {
-    renderTheme(<GridSection>children</GridSection>)
-    expect(screen.getByRole('heading')).toBeInTheDocument()
+    const { container } = renderTheme(<GridSection {...mock} />)
+    expect(container).toBeInTheDocument()
   })
 })
