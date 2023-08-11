@@ -1,15 +1,14 @@
+import { GridImage } from '../../components/GridImage';
 import * as Styled from './styles';
-import linksMock from '../../components/NavLinks/mock'
-import { GridContent } from '../../components/GridContent';
-import { GridSection } from '../../components/GridSection';
-import mock from '../../components/GridSection/mock';
+import mock from '../../components/GridImage/mock'
+
 
 
 
 function Home() {
   return (
     <div className="App">
-      <GridSection {...mock} />
+      <GridImage {...mock} />
     </div>
   );
 }

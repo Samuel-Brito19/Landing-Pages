@@ -11,9 +11,8 @@ export const GridImage = ({ title, description, background = false, grid }) => {
         <Heading size='huge' upperCase as='h2'>{title}</Heading>
         <TextComponent>{description}</TextComponent>
         <Styled.Grid>{grid.map(el => (
-          <Styled.GridElement key={el.title}>
-            <Heading size='medium' as='h3'>{el.title}</Heading>
-            <TextComponent>{el.description}</TextComponent>
+          <Styled.GridElement key={`${el.srcImg}${el.altText}`}>
+            <Styled.Image src={el.srcImg} alt={el.altText} />
           </Styled.GridElement>
         ))}</Styled.Grid>
       </Styled.Container>

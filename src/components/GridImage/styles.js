@@ -13,7 +13,6 @@ ${TextComponent} {
 
 export const Grid = styled.div`
 ${({ theme }) => css`
-counter-reset: grid-counter;
 display: grid;
 grid-template-columns: repeat(auto-fill, minMax(280px, 1fr));
 gap: ${theme.spacings.large};
@@ -22,22 +21,17 @@ gap: ${theme.spacings.large};
 
 export const GridElement = styled.div`
 ${({ theme }) => css`
-${HeadingContainer} {
-  position: relative;
-  left: 5rem;
+overflow: hidden;
+`}
+`;
 
-}
+export const Image = styled.img`
+${({ theme }) => css`
+width: 1005;
 
-${HeadingContainer}::before {
-  counter-increment: grid-counter;
-  content: counter(grid-counter);
-  position: absolute;
-  font-size: ${theme.font.sizes.xhuge};
-  top: -2rem;
-  left: -5rem;
-  transform: rotate(5deg);
-
-
+&:hover {
+  transform: scale(1.2) rotate(10deg);
 }
 `}
 `;
+
