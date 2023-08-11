@@ -1,12 +1,33 @@
 import P from 'prop-types'
 import * as Styled from './styles'
-export const GridImage = ({ children }) => {
+import { SectionBackground } from '../SectionBackground'
+import { Heading } from '../Heading'
+import { TextComponent } from '../TextComponent'
+
+export const GridImage = ({ title, description, background = false, grid }) => {
   return (
-    <Styled.Container>
-      <h1>{children}</h1>
-    </Styled.Container>
+    <SectionBackground>
+      <Styled.Container>
+        <Heading size='huge' upperCase as='h2'>{title}</Heading>
+        <TextComponent>{description}</TextComponent>
+        <Styled.Grid>{grid.map(el => (
+          <Styled.GridElement key={el.title}>
+            <Heading size='medium' as='h3'>{el.title}</Heading>
+            <TextComponent>{el.description}</TextComponent>
+          </Styled.GridElement>
+        ))}</Styled.Grid>
+      </Styled.Container>
+    </SectionBackground>
   )
 }
 GridImage.propTypes = {
-  children: P.node.isRequired
+  title: P.string.isRequired,
+  description: P.string.isRequired,
+  background: P.bool,
+  grid: P.arrayOf(
+    P.shape({
+      altText: P.string.isRequired,
+      srcImg: P.string.isRequired,
+    }),
+  ).isRequired,
 }
