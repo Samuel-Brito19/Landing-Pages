@@ -15,15 +15,15 @@ export const Container = styled.div`
     left: 0;
     right: 0;
     width: 100%;
-    height: 100%;
     border-bottom: ${theme.colors.mediumGray};
     background: ${theme.colors.white};
     transition: all 300ms ease-in-out;
 
     > ${SectionContainer} {
-      padding-top:0;
+      padding-top: 0;
       padding-bottom: 0;
     }
+
     & ${Heading} {
       margin-top: 0;
       margin-bottom: 0;
@@ -43,6 +43,7 @@ export const Container = styled.div`
         align-items: center;
         overflow-y: auto;
       }
+
       & ${Heading} {
         padding-bottom: ${theme.spacings.large};
         display: flex;
@@ -85,6 +86,7 @@ export const Button = styled.button`
       align-items: center;
       justify-content: center;
     }
+
     > svg {
       width: 2.5rem;
       height: 2.5rem;
