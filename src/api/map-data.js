@@ -14,3 +14,4 @@ export const mapData = (pagesData = [{}]) => {
 
   })
 }
+
