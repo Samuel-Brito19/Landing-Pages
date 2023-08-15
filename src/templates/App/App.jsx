@@ -1,6 +1,6 @@
 import { GridImage } from '../../components/GridImage';
 import * as Styled from './styles';
-import { mockBase } from '../Base/stories'
+import { mockBase } from '../Base/mock'
 import { Base } from '../Base';
 
 

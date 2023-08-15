@@ -1,6 +1,4 @@
-import { Base } from '.';
-
-import mock from './mock';
+import linksMock from '../../components/NavLinks/mock'
 import { GridSection } from '../../components/GridSection';
 import gridMock from '../../components/GridSection/mock';
 
@@ -12,23 +10,13 @@ export const mockBase = {
       <GridSection {...gridMock} background />
       <GridSection {...gridMock} />
       <GridSection {...gridMock} background />
+      <GridSection {...gridMock} />
     </>
   ),
-  ...mock,
-}
-
-export default {
-  title: 'Templates/Base',
-  component: Base,
-  args: {
-
+  links: linksMock,
+  logoData: {
+    text: 'Logo',
+    link: '#',
   },
-};
-
-export const Template = (args) => {
-  return (
-    <div>
-      <Base {...args} />
-    </div>
-  );
+  footerHtml: '<p>Teste de footer</p>',
 };
