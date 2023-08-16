@@ -43,6 +43,7 @@ export const mapSectionContent = (section = {}) => {
     title,
     background,
     sectionId,
+    html
   }
 }
 

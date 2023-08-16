@@ -16,6 +16,7 @@ describe('map-sections', () => {
     expect(data.text).toBe('');
     expect(data.title).toBe('');
   });
+
   it('should map section two columns', () => {
     const data = mapSectionTwoColumns({
       __component: 'section.section-two-columns',
@@ -65,6 +66,29 @@ describe('map-sections', () => {
   });
 
   it('should map section content', () => {
-    const section = mapSectionContent()
+    const data = mapSectionContent(
+      {
+        __component: "section.section-content",
+        _id: "602fdf2d540c00269e056177",
+        title: "Pricing",
+        content: 'abc',
+        metadata: {
+          background: false,
+          _id: "602fdf2d540c00269e056179",
+          name: "pricing",
+          section_id: "pricing",
+          __v: 0,
+          id: "602fdf2d540c00269e056179"
+        },
+        __v: 1,
+        id: "602fdf2d540c00269e056177"
+      },
+    );
+    expect(data.background).toBe(false);
+    expect(data.component).toBe('section.section-content');
+    expect(data.sectionId).toBe('pricing');
+    expect(data.title).toBe('Pricing');
+    expect(data.html).toBe('');
   })
+
 })
