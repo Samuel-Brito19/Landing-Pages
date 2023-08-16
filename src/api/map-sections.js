@@ -82,10 +82,10 @@ export const mapImageGrid = (section = {}) => {
     title = '',
     content: description = '',
     metadata: { background = false, section_id: sectionId = '' } = false,
-    text_grid: grid = []
+    image_grid: grid = []
   } = section
   return {
-    component: 'section.section-grid-text',
+    component: 'section.section-grid-image',
     title,
     background,
     sectionId,

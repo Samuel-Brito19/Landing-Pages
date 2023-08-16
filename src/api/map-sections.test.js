@@ -1,4 +1,4 @@
-import { mapSectionContent, mapSectionTwoColumns, mapTextGrid } from "./map-sections"
+import { mapSectionContent, mapSectionTwoColumns, mapTextGrid, mapImageGrid } from "./map-sections"
 
 describe('map-sections', () => {
 
@@ -135,7 +135,7 @@ describe('map-sections', () => {
       id: '602fdf2d540c00269e056174',
     });
     expect(data.background).toBe(true);
-    expect(data.component).toBe('section.section-grid');
+    expect(data.component).toBe('section.section-grid-text');
     expect(data.sectionId).toBe('grid-one');
     expect(data.title).toBe('My Grid');
     expect(data.description).toBe('');
@@ -145,11 +145,21 @@ describe('map-sections', () => {
   it('should map grid text without data', () => {
     const data = mapTextGrid(undefined);
     expect(data.background).toBe(false);
-    expect(data.component).toBe('section.section-grid-text');
+    expect(data.component).toBe('section.section-grid');
     expect(data.sectionId).toBe('');
     expect(data.title).toBe('');
     expect(data.description).toBe('');
   });
+
+  it('should map grid image without data', () => {
+    const data = mapImageGrid(undefined);
+    expect(data.background).toBe(false);
+    expect(data.component).toBe('section.section-grid-image');
+    expect(data.sectionId).toBe('');
+    expect(data.title).toBe('');
+    expect(data.description).toBe('');
+  });
+
 
 })
 
