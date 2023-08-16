@@ -91,7 +91,7 @@ describe('map-sections', () => {
     expect(data.html).toBe('abc');
   })
 
-  it('should map grid text', () => {
+  it('should map grid text with data', () => {
     const data = mapTextGrid({
       __component: 'section.section-grid',
       _id: '602fdf2d540c00269e056174',
@@ -140,6 +140,15 @@ describe('map-sections', () => {
     expect(data.title).toBe('My Grid');
     expect(data.description).toBe('');
     expect(data.grid[0].title).toBe('Teste 1');
+  });
+
+  it('should map grid text without data', () => {
+    const data = mapTextGrid(undefined);
+    expect(data.background).toBe(false);
+    expect(data.component).toBe('section.section-grid-text');
+    expect(data.sectionId).toBe('');
+    expect(data.title).toBe('');
+    expect(data.description).toBe('');
   });
 
 })
