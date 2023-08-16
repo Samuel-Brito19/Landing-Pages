@@ -1,6 +1,21 @@
-import { mapSectionTwoColumns } from "./map-sections"
+import { mapSectionContent, mapSectionTwoColumns } from "./map-sections"
 
 describe('map-sections', () => {
+
+  it('should render predefined section if no data', () => {
+    const data = mapSections();
+    expect(data).toEqual([]);
+  });
+
+  it('should map section two columns', () => {
+    const data = mapSectionTwoColumns();
+    expect(data.background).toBe(false);
+    expect(data.component).toBe('');
+    expect(data.sectionId).toBe('');
+    expect(data.srcImg).toBe('');
+    expect(data.text).toBe('');
+    expect(data.title).toBe('');
+  });
   it('should map section two columns', () => {
     const data = mapSectionTwoColumns({
       __component: 'section.section-two-columns',
@@ -48,4 +63,8 @@ describe('map-sections', () => {
     expect(data.text).toBe('abc');
     expect(data.title).toBe('title');
   });
+
+  it('should map section content', () => {
+    const section = mapSectionContent()
+  })
 })
