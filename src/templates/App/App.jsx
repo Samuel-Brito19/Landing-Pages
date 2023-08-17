@@ -5,6 +5,8 @@ import { Base } from '../Base';
 import { useEffect, useState, useRef } from 'react';
 import { mapData } from '../../api/map-data'
 import { PageNotFound } from '../PageNotFound';
+import { Loading } from '../Loading';
+
 
 
 function Home() {
@@ -21,6 +23,7 @@ function Home() {
         const json = await data.json();
         const { attributes } = json.data[0];
         const pageData = mapData([attributes]);
+
         setData(() => pageData[0]);
       } catch (e) {
         setData(undefined)
@@ -42,7 +45,7 @@ function Home() {
   }
 
   if (data && !data.slug) {
-    return <h1>Carregando...</h1>;
+    return <Loading />
   }
 
   return <Base {...mockBase} />;
