@@ -31,4 +31,5 @@ GridSection.propTypes = {
       description: P.string.isRequired,
     }),
   ).isRequired,
+  sectionId: P.string
 }
