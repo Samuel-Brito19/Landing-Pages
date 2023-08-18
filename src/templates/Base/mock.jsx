@@ -1,16 +1,16 @@
 import linksMock from '../../components/NavLinks/mock'
-import { GridSection } from '../../components/GridSection';
-import gridMock from '../../components/GridSection/mock';
+import { GridText } from '../../components/GridText';
+import gridMock from '../../components/GridText/mock';
 
 export const mockBase = {
   children: (
     <>
-      <GridSection {...gridMock} background />
-      <GridSection {...gridMock} />
-      <GridSection {...gridMock} background />
-      <GridSection {...gridMock} />
-      <GridSection {...gridMock} background />
-      <GridSection {...gridMock} />
+      < GridText {...gridMock} background />
+      < GridText {...gridMock} />
+      < GridText {...gridMock} background />
+      < GridText {...gridMock} />
+      < GridText {...gridMock} background />
+      < GridText {...gridMock} />
     </>
   ),
   links: linksMock,

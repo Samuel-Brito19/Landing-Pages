@@ -1,5 +1,5 @@
 import { GridTwoColum } from '../../components/GridTwoColum'
-import { GridSection } from '../../components/GridSection'
+import { GridText } from '../../components/GridText'
 import { GridImage } from '../../components/GridImage';
 
 import { Base } from '../Base';
@@ -7,33 +7,61 @@ import { useEffect, useState, useRef } from 'react';
 import { mapData } from '../../api/map-data'
 import { PageNotFound } from '../PageNotFound';
 import { Loading } from '../Loading';
+import { useLocation } from 'react-router-dom';
 
 function Home() {
   const [data, setData] = useState([]);
+  const isMounted = useRef(true);
+  const location = useLocation();
+
   useEffect(() => {
     const load = async () => {
+      const pathName = location.pathname.replace(/[^a-z0-9-_]/gi, '');
+      const slug = pathName ? pathName : 'landing-page';
+
       try {
-        console.log('fetching');
         const data = await fetch(
-          'http://localhost:1337/api/pages/?filters[slug]=pagina-louca&populate=deep'
+          `https://strapi-v4-test.herokuapp.com/api/pages/?filters[slug]=${slug}&populate=deep`,
         );
         const json = await data.json();
-        const pageData = mapData(json);
-        setData(pageData[0]);
-      } catch (e) {
-        console.log(e);
+        const { attributes } = json.data[0];
+        const pageData = mapData([attributes]);
+        setData(() => pageData[0]);
+      } catch {
         setData(undefined);
       }
     };
-    load();
-  }, []);
+
+    if (isMounted.current === true) {
+      load();
+    }
+
+    return () => {
+      isMounted.current = false;
+    };
+  }, [location]);
+
+  useEffect(() => {
+    if (data === undefined) {
+      document.title = `Página não encontrada | ${config.siteName}`;
+    }
+
+    if (data && !data.slug) {
+      document.title = `Carregando... | ${config.siteName}`;
+    }
+
+    if (data && data.title) {
+      document.title = `${data.title} | ${config.siteName}`;
+    }
+  }, [data]);
+
   if (data === undefined) {
     return <PageNotFound />;
   }
+
   if (data && !data.slug) {
     return <Loading />;
   }
-
 
   const { menu, sections, footerHtml, slug } = data;
   const { links, text, link, srcImg } = menu;
@@ -49,7 +77,7 @@ function Home() {
         const key = `${slug}-${index}`;
 
         if (component === 'section.section-two-columns') {
-          return <GridTwoColum key={key} {...section} />;
+          return <GridTwoColumns key={key} {...section} />;
         }
 
         if (component === 'section.section-content') {
@@ -57,7 +85,7 @@ function Home() {
         }
 
         if (component === 'section.section-grid-text') {
-          return <GridSection key={key} {...section} />;
+          return <GridText key={key} {...section} />;
         }
 
         if (component === 'section.section-grid-image') {
@@ -67,6 +95,5 @@ function Home() {
     </Base>
   );
 }
-
 
 export default Home;
