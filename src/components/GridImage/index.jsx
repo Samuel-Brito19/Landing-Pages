@@ -4,11 +4,11 @@ import { SectionBackground } from '../SectionBackground'
 import { Heading } from '../Heading'
 import { TextComponent } from '../TextComponent'
 
-export const GridImage = ({ title, description, background = false, grid }) => {
+export const GridImage = ({ title, description, background = false, grid, sectionId = '' }) => {
   return (
-    <SectionBackground>
+    <SectionBackground background={background} sectionId={sectionId}>
       <Styled.Container>
-        <Heading size='huge' upperCase as='h2'>{title}</Heading>
+        <Heading size='huge' upperCase as='h2' colorDark={!background}>{title}</Heading>
         <TextComponent>{description}</TextComponent>
         <Styled.Grid>{grid.map(el => (
           <Styled.GridElement key={`${el.srcImg}${el.altText}`}>

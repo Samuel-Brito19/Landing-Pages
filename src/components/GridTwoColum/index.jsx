@@ -4,12 +4,12 @@ import { SectionBackground } from '../SectionBackground'
 import { Heading } from '../Heading'
 import { TextComponent } from '../TextComponent'
 
-export const GridTwoColum = ({ title, text, srcImg, background = false }) => {
+export const GridTwoColum = ({ title, text, srcImg, background = false, sectionId = '' }) => {
   return (
-    <SectionBackground background={background}>
+    <SectionBackground background={background} sectionId={sectionId}>
       <Styled.Container background={background}>
         <Styled.TextContainer>
-          <Heading as='h2'>{title}</Heading>
+          <Heading as='h2' colorDark={!background}>{title}</Heading>
           <TextComponent>{text}</TextComponent>
         </Styled.TextContainer>
         <Styled.ImageContainer>

@@ -39,11 +39,9 @@ ${HeadingContainer}::before {
   content: counter(grid-counter);
   position: absolute;
   font-size: ${theme.font.sizes.xhuge};
-  top: -2rem;
+  top: -3rem;
   left: -5rem;
   transform: rotate(5deg);
-
-
 }
 `}
 `;

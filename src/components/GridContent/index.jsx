@@ -5,11 +5,11 @@ import { SectionBackground } from '../SectionBackground'
 import { Heading } from '../Heading'
 import { TextComponent } from '../TextComponent'
 
-export const GridContent = ({ title, html, background = false }) => {
+export const GridContent = ({ title, html, background = false, sectionId = '' }) => {
   return (
-    <SectionBackground>
+    <SectionBackground background={background} sectionId={sectionId}>
       <Styled.Container>
-        <Heading upperCase as='h2'>
+        <Heading upperCase as='h2' colorDark={!background}>
           {title}
         </Heading>
         <Styled.Html>

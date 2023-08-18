@@ -4,15 +4,15 @@ import { SectionBackground } from '../SectionBackground'
 import { Heading } from '../Heading'
 import { TextComponent } from '../TextComponent'
 
-export const GridSection = ({ title, description, background = false, grid }) => {
+export const GridSection = ({ title, description, background = false, grid, sectionId = '' }) => {
   return (
-    <SectionBackground background={background}>
+    <SectionBackground background={background} sectionId={sectionId}>
       <Styled.Container>
-        <Heading size='huge' upperCase as='h2'>{title}</Heading>
+        <Heading size='huge' upperCase as='h2' colorDark={!background}>{title}</Heading>
         <TextComponent>{description}</TextComponent>
         <Styled.Grid>{grid.map(el => (
           <Styled.GridElement key={el.title}>
-            <Heading size='medium' as='h3'>{el.title}</Heading>
+            <Heading size='medium' as='h3' colorDark={!background}>{el.title}</Heading>
             <TextComponent>{el.description}</TextComponent>
           </Styled.GridElement>
         ))}</Styled.Grid>

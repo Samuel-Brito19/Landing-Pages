@@ -16,6 +16,10 @@ ${({ theme }) => css`
 display: grid;
 grid-template-columns: repeat(auto-fill, minMax(280px, 1fr));
 gap: ${theme.spacings.large};
+
+@media ${theme.media.lteMedium} {
+  grid-template-columns: 1fr;
+}
 `}
 `;
 
@@ -27,7 +31,8 @@ overflow: hidden;
 
 export const Image = styled.img`
 ${({ theme }) => css`
-width: 1005;
+width: 100%;
+transition: all 300ms ease-in-out;
 
 &:hover {
   transform: scale(1.2) rotate(10deg);
