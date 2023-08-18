@@ -7,7 +7,7 @@ text-decoration: none;
 color: inherit
 
   > img {
-    max-height: 3rem;
+    height: 3rem;
   }
 `}
 `;
