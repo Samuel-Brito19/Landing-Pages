@@ -1,53 +1,72 @@
+import { GridTwoColum } from '../../components/GridTwoColum'
+import { GridSection } from '../../components/GridSection'
 import { GridImage } from '../../components/GridImage';
-import * as Styled from './styles';
-import { mockBase } from '../Base/mock'
+
 import { Base } from '../Base';
 import { useEffect, useState, useRef } from 'react';
 import { mapData } from '../../api/map-data'
 import { PageNotFound } from '../PageNotFound';
 import { Loading } from '../Loading';
 
-
-
 function Home() {
   const [data, setData] = useState([]);
-  const isMounted = useRef(true);
-
   useEffect(() => {
     const load = async () => {
       try {
         console.log('fetching');
         const data = await fetch(
-          'http://localhost:1337/api/pages/?slug=landing-page&populate=deep',
+          'http://localhost:1337/api/pages/?filters[slug]=pagina-louca&populate=deep'
         );
         const json = await data.json();
-        const { attributes } = json.data[0];
-        const pageData = mapData([attributes]);
-
-        setData(() => pageData[0]);
+        const pageData = mapData(json);
+        setData(pageData[0]);
       } catch (e) {
-        setData(undefined)
+        console.log(e);
+        setData(undefined);
       }
-
     };
-
-    if (isMounted.current === true) {
-      load();
-    }
-
-    return () => {
-      isMounted.current = false;
-    };
+    load();
   }, []);
-
   if (data === undefined) {
-    return <PageNotFound />
+    return <PageNotFound />;
   }
-
   if (data && !data.slug) {
-    return <Loading />
+    return <Loading />;
   }
 
-  return <Base {...mockBase} />;
+
+  const { menu, sections, footerHtml, slug } = data;
+  const { links, text, link, srcImg } = menu;
+
+  return (
+    <Base
+      links={links}
+      footerHtml={footerHtml}
+      logoData={{ text, link, srcImg }}
+    >
+      {sections.map((section, index) => {
+        const { component } = section;
+        const key = `${slug}-${index}`;
+
+        if (component === 'section.section-two-columns') {
+          return <GridTwoColum key={key} {...section} />;
+        }
+
+        if (component === 'section.section-content') {
+          return <GridContent key={key} {...section} />;
+        }
+
+        if (component === 'section.section-grid-text') {
+          return <GridSection key={key} {...section} />;
+        }
+
+        if (component === 'section.section-grid-image') {
+          return <GridImage key={key} {...section} />;
+        }
+      })}
+    </Base>
+  );
 }
+
+
 export default Home;
